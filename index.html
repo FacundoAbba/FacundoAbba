@@ -1,68 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Facundo Abba - Página Personal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facundo Abba - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Encabezado con nombre y navegación -->
   <header>
+    <div id="imagen">
+      <img src="Perfil.jpg" alt="Foto de Facundo Abba">
+    </div>
     <h1>Facundo Abba</h1>
-    <nav>
-      <ul>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Sección de presentación -->
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>Hola, soy Facundo Abba. Tengo 20 años y soy de Humboldt, Santa Fe.</p>
-    <p>Estudio en el ITEC y actualmente trabajo 8 horas por día como desarrollador GeneXus.</p>
-    <p>Me interesa el desarrollo web, aprender nuevas tecnologías y crear soluciones creativas y útiles para las personas.</p>
-    <p>En mi tiempo libre disfruto viendo fútbol y yendo de pesca.</p>
-    <p>Me gusta el lenguaje de programación GeneXus y actualmente trabajo con él.</p>
-  </section>
+  <main>
+    <div class="tabs">
+      <button class="tab-button active" data-tab="sobre-mi">Sobre mí</button>
+      <button class="tab-button" data-tab="habilidades">Habilidades</button>
+      <button class="tab-button" data-tab="contacto">Contacto</button>
+    </div>
 
-  <!-- Sección de habilidades e intereses -->
-  <section id="habilidades">
-    <h2>Habilidades e intereses</h2>
-    <ul>
-      <li>Experiencia en desarrollo y mantenimiento de sistemas ERP utilizando GeneXus (versiones 16, 17 y 18).</li>
-      <li>Implementación y optimización de soluciones empresariales.</li>
-      <li>Integración de servicios mediante APIs REST.</li>
-      <li>Migración de KBs desde versiones antiguas a más recientes.</li>
-      <li>Optimización de la estructura y rendimiento de aplicaciones GeneXus.</li>
-      <li>Conocimientos en bases de datos: SQLite, MySQL Workbench y SQL Server Management Studio.</li>
-      <li>Desarrollo de pequeños sistemas en Python con enfoque en automatización y gestión de datos.</li>
-      <li>Enfoque en eficiencia de sistemas, automatización de procesos y soluciones tecnológicas innovadoras.</li>
-      <li>Conocimientos en inglés y alemán.</li>
-    </ul>
-  </section>
+    <div class="content-wrapper">
+      <section id="sobre-mi" class="tab-content active">
+        <h2>Sobre mí</h2>
+        <p>Soy estudiante de tercer año de la Tecnicatura en Desarrollo de Software en el ITEC El Molino. Me apasiona el aprendizaje constante, la optimización de sistemas y la automatización de procesos.</p>
+        <p>Actualmente trabajo como desarrollador GeneXus y tengo experiencia profesional con las versiones 16, 17 y 18.</p>
+        <p>Mi enfoque se centra en brindar soluciones tecnológicas eficientes e innovadoras.</p>
+      </section>
 
-  <!-- Imagen de perfil -->
-  <section>
-    <h2>Mi imagen de perfil</h2>
-    <img src="Perfil.jpg" alt="Foto de Facundo Abba">
-  </section>
+      <section id="habilidades" class="tab-content">
+        <h2>Habilidades e intereses</h2>
+        <ul>
+          <li>Desarrollo y mantenimiento de sistemas ERP con GeneXus (v16, v17, v18).</li>
+          <li>Implementación y optimización de soluciones empresariales.</li>
+          <li>Integración de servicios mediante APIs REST.</li>
+          <li>Migración de KBs y mejora de estructuras y rendimiento.</li>
+          <li>Experiencia en SQLite, MySQL Workbench y SQL Server Management Studio.</li>
+          <li>Desarrollo en Python orientado a automatización y gestión de datos.</li>
+          <li>Inglés (nivel B1 certificado por Cambridge) y alemán (nivel A1 certificado por Goethe).</li>
+        </ul>
+      </section>
 
-  <!-- Enlaces de contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Podés encontrarme en:</p>
-    <ul>
-      <li><a href="https://lnk.bio/facuabba12" target="_blank">Todas mis plataformas</a></li>
-    </ul>
-  </section>
+      <section id="contacto" class="tab-content">
+        <h2>Contacto</h2>
+        <p>Ubicación: Humboldt, Santa Fe</p>
+        <p>Email: <a href="mailto:facuabba2@gmail.com">facuabba2@gmail.com</a></p>
+        <p>Teléfono: <a href="tel:+543496505608">3496-505608</a></p>
+        <p>También podés encontrarme en línea:</p>
+        <div class="button-group">
+          <a class="cta-link" href="https://lnk.bio/facuabba12" target="_blank">Visitar mi universo digital 🌐</a>
+          <a class="whatsapp-button" href="https://wa.me/543496505608" target="_blank">Contactarme por WhatsApp 📲</a>
+        </div>
+      </section>
+    </div>
+  </main>
 
-  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Facundo Abba</p>
   </footer>
 
+  <script>
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
